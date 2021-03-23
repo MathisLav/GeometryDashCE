@@ -1,12 +1,12 @@
-# The Impossible Game for Ti-83 Premium CE and Ti-84+CE
+# Geometry Dash for Ti-83 Premium CE and Ti-84+CE
 
-### KEYS
+### Keys
 __Main Menu__
 - MODE/DEL/CLEAR : quit
 - </> : choose a level
 - ENTER/2ND : run the selected level
 - ALPHA : edit the selected level
-- + : create a level
+- \+ : create a level
 
 __Game__
 - 2ND : jump
@@ -33,6 +33,16 @@ __Edition__
 - are not in a reversed gravity and spaceship context at the same time
 - do not put a changing of context just before the end of the level
 
+
+### Compiling
+#### Windows
+In the root folder, execute `spasm64.exe -E src/GD.z80 AGD.8xp`
+
+#### Linux
+This solution requires wine64. On Ubuntu, this can be installed with `sudo apt-get install wine64`
+Then, in the root folder, execute `make spasm`.
+
+
 ### Information
 You can find the other levels here : https://tiplanet.org/forum/archives_list.php?cat=Jeux+Levels+Geometry+Dash+ce
 
@@ -45,7 +55,7 @@ This program is under the Creative Commons BY-NC-SA 4.0
 More information here : https://creativecommons.org/licenses/by-nc-sa/4.0/
  
 
-### How can I create my own level ?
+### How can I create my own level on computer ?
 - Download and install Tiled, a software that will allow you to create a level from a tileset.
 - In Tiled, create a level with a height of at least 10 tiles, then import the tileset GD.png in the archive (Map -> New Tileset)
 - When you're satisfied, export your level with the .CSV extension

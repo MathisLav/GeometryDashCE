@@ -406,12 +406,12 @@ SCROLL_noOverflow:
 	push hl
 	ld a,(nbChngGrvtyRmng)
 	or a
-	jr z,noChangingOfGravity
+	jr z,noChangingOfGravity-4
 	ex de,hl
 	ld hl,(addrGravity)
 	ld hl,(hl)
 	sbc hl,de
-	jr nz,noChangingOfGravity
+	jr nc,noChangingOfGravity
 
 	ld hl,(addrGravity)
 	inc hl
@@ -431,6 +431,7 @@ SCROLL_noOverflow:
 	jr noChangingOfGravity
 gravityRvrsd:
 	res FLG_rvrsGravity, (iy+asm_flag1)
+	call DEBUG2
 noChangingOfGravity:
 
 	bit FLG_sphpAvlble, (iy+asm_flag2)
@@ -451,7 +452,7 @@ noChangingOfGravity:
 	inc hl
 	inc hl
 	ld (addrSpaceship),hl
-	ld hl,nbChngGrvtyRmng
+	ld hl,nbChngSphpRmng
 	dec (hl)
 
 	bit FLG_spaceshipOn, (iy+asm_flag1)
@@ -3327,16 +3328,16 @@ scan_wait2:
 	pop af
 	ret
 
-;DEBUG_2:
-;	push hl
-;	push af
-;	ld hl,(mpLcdPalette+(BGCl*2))
-;	ld a,r
-;	ld h,a
-;	ld (mpLcdPalette+(BGCl*2)),hl
-;	pop af
-;	pop hl
-;	ret
+DEBUG2:
+	push hl
+	push af
+	ld hl,(mpLcdPalette+(BGCl*2))
+	ld a,r
+	ld h,a
+	ld (mpLcdPalette+(BGCl*2)),hl
+	pop af
+	pop hl
+	ret
 
 	.dl -320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10
 jmpSpeedLUT:

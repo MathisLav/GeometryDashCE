@@ -2,7 +2,7 @@
 	#define db .db
 	#define dw .dw
 	#define dl .dl
-	#include "GeometryDash_Data\ti84pce.inc"
+	#include "include/ti84pce.inc"
 	#macro bcall(x)
 		call x
 	#endmacro
@@ -1183,11 +1183,11 @@ ERR_needMenu:
 ;		- remplacer les particules par des pixels transparents aux trampolines
 ;		- Lancer le compresseur
 
-#include "graphicFuncs.z80"
-#include "game.z80"
-#include "endlevel.z80"
-#include "gdcreator.z80"
-#include "data.z80"
+#include "src/graphicFuncs.z80"
+#include "src/game.z80"
+#include "src/endlevel.z80"
+#include "src/gdcreator.z80"
+#include "src/data.z80"
 
 .echo "Size : ", $ - start
 .end
