@@ -36,10 +36,10 @@ __Edition__
 
 ### Compiling
 #### Windows
-In the root folder, execute `spasm64.exe -E src/GD.z80 AGD.8xp`
+In the root folder, execute `spasm64.exe -E src/GD.z80 AGD.8xp`.
 
 #### Linux
-This solution requires wine64. On Ubuntu, this can be installed with `sudo apt-get install wine64`
+This solution requires wine64. On Ubuntu, this can be installed with `sudo apt-get install wine64`.  
 Then, in the root folder, execute `make spasm`.
 
 
