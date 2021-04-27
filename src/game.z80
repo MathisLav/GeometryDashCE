@@ -371,8 +371,7 @@ waitFrame:
 	jp nz,speedQuit
 	bit 0, a ; enter
 	;jp nz,initTransition
-	;jp nz,game_pause
-	call nz, DEBUG
+	jp nz,game_pause
 	res FLG_pauseLeft, (iy+asm_flag2)
 	; si on n'a pas appuyé sur 2nde et qu'on est en mode spaceship...
 	bit FLG_spaceshipOn, (iy+asm_flag1)
@@ -1504,6 +1503,7 @@ NORM_jmpTile:
 	set FLG_jumping, (iy+asm_flag1)
 	ld hl,jmpSpeedLUT-15
 	ld (jmp_speed),hl
+	set FLG_topReached, (iy+asm_flag1)
 	pop hl
 	jp dispCharacter
 NORM_noJmpTile:
@@ -1791,6 +1791,7 @@ RVRS_jmpTile:
 	set FLG_jumping, (iy+asm_flag1)
 	ld hl,jmpSpeedLUT_rvrs+15
 	ld (jmp_speed),hl
+	set FLG_botReached, (iy+asm_flag1)
 	pop hl
 	jp dispCharacter
 RVRS_noJmpTile:
@@ -2817,7 +2818,6 @@ SCRDW_oneTileDisplayed:
 	push bc
 	pop iy
 	ex af,af'
-	;call DEBUG
 SCRDW_NEW_dispTilesVertScrollY:
 	push de
 	lea bc,iy+0
@@ -3351,24 +3351,24 @@ scan_wait2:
 	pop af
 	ret
 
-DEBUG2:
-	push hl
-	push af
-	ld hl,(mpLcdPalette+(BGCl*2))
-	ld a,r
-	ld h,a
-	ld (mpLcdPalette+(BGCl*2)),hl
-	pop af
-	pop hl
-	ret
+;DEBUG2:
+;	push hl
+;	push af
+;	ld hl,(mpLcdPalette+(BGCl*2))
+;	ld a,r
+;	ld h,a
+;	ld (mpLcdPalette+(BGCl*2)),hl
+;	pop af
+;	pop hl
+;	ret
 
-	.dl -320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10
+	.dl -320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10,-320*10
 jmpSpeedLUT:
 	.dl -320*10,-320*9,-320*8,-320*6,-320*5,-320*4,-320*4,-320*3,-320*3,-320*2,-320*1,320*0
 jmpSpeedLUT_0:
 	.dl 320*0,320*1,320*2,320*3,320*3,320*4,320*4,320*5,320*6,320*8,320*9
 jmpSpeedLUT_rvrs:
-	.dl 320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10
+	.dl 320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10,320*10
 
 spcshpSpeedLUT_beg:
 	.dl -320*6

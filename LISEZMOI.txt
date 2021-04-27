@@ -1,4 +1,7 @@
-﻿Geometry Dash (The Impossible Game) porté sur Ti-83 Premium CE et TI-84+CE ! Jouez à 3 niveaux différents (Stereo Madness/Polargeist/Dry Out) et créez-en grâce au convertisseur en ligne ! (voir plus bas)
+﻿Geometry Dash (The Impossible Game) porté sur Ti-83 Premium CE et TI-84+CE ! Jouez à 6 niveaux différents (Stereo Madness/Polargeist/Dry Out/Can't Let Go/Time Machine/Base After Base) et créez-en grâce au convertisseur en ligne ! (voir plus bas)
+
+
+Un grand merci à shadow17 pour avoir accepté de mettre ses niveaux (Can't let go, Base After Base et Time Machine) dans l'archive ! Grâce à lui, vous avez la possibilité de jouer à 6 niveaux de base au lieu des 3 initiaux ;)
 
 
 NOUVEAU :

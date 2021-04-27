@@ -12,3 +12,7 @@ all:
 
 sendall:
 	sudo tilp -n -s AGD.8xp levels/*.8xv ./*.8xv
+
+release:
+	rm GeometryDash.zip
+	zip -r GeometryDash.zip include/* levels/* src/* *.8xp *.8xv *.png LISEZMOI.txt README.md 
