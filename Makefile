@@ -1,13 +1,13 @@
 WINE=wine64
 
 spasm:
-	$(WINE) spasm64.exe -E src/GD.z80 AGD.8xp
+	$(WINE) spasm64.exe -E -L src/GD.z80 AGD.8xp
 
 send:
 	sudo tilp -n -s AGD.8xp
 
 all:
-	$(WINE) spasm64.exe -E src/GD.z80 AGD.8xp
+	$(WINE) spasm64.exe -E -L src/GD.z80 AGD.8xp
 	sudo tilp -n -s AGD.8xp
 
 sendall:

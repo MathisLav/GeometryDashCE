@@ -44,7 +44,7 @@ playLevel_noextract:
 	ld de,vRam+(320*TIL_sizeY*MAP_sizeY)+1
 	ld bc,320*1
 	ldir
-	ld (hl),$7E
+	ld (hl),$7e
 	ld bc,320*240-((320*TIL_sizeY*MAP_sizeY)+(320*1))
 	ldir
 	ld hl,vRam+(320*TIL_sizeY*MAP_sizeY)+(320*240)
@@ -52,7 +52,7 @@ playLevel_noextract:
 	ld de,vRam+(320*TIL_sizeY*MAP_sizeY)+(320*240)+1
 	ld bc,320*1
 	ldir
-	ld (hl),$7E
+	ld (hl),$7e
 	ld bc,320*240-((320*TIL_sizeY*MAP_sizeY)+(320*1))
 	ldir
 
@@ -276,11 +276,6 @@ ANIM_scanWait:
 
 	ld hl,(Vcharacter_posY)
 	ld (prev_posY),hl
-	; DONE_dispStuffs :
-	;	Displays sprite on the other buffer
-	;	Swaps buffers
-	;	Erase old sprite
-	;call DONE_dispStuffs
 
 	; initializing the counter
 	xor a
@@ -376,7 +371,8 @@ waitFrame:
 	jp nz,speedQuit
 	bit 0, a ; enter
 	;jp nz,initTransition
-	jp nz,game_pause
+	;jp nz,game_pause
+	call nz, DEBUG
 	res FLG_pauseLeft, (iy+asm_flag2)
 	; si on n'a pas appuyé sur 2nde et qu'on est en mode spaceship...
 	bit FLG_spaceshipOn, (iy+asm_flag1)
@@ -406,7 +402,7 @@ SCROLL_noOverflow:
 	push hl
 	ld a,(nbChngGrvtyRmng)
 	or a
-	jr z,noChangingOfGravity-4
+	jr z,noChangingOfGravity
 	ex de,hl
 	ld hl,(addrGravity)
 	ld hl,(hl)
@@ -431,7 +427,6 @@ SCROLL_noOverflow:
 	jr noChangingOfGravity
 gravityRvrsd:
 	res FLG_rvrsGravity, (iy+asm_flag1)
-	call DEBUG2
 noChangingOfGravity:
 
 	bit FLG_sphpAvlble, (iy+asm_flag2)
@@ -804,7 +799,7 @@ notCurrBuf:
 	or a,4 ; bitLcdLnBuim
 	ld (bc),a
 	ld (mpLcdBase),hl
-waitForSync:            ; Wait fot the LCD to be ready to update
+waitForSync:            ; Wait for the LCD to be ready to update
 	ld a,(mpLcdRis)
 	and a,4 ; bitLcdLnBuim
 	jr z,waitForSync
@@ -869,7 +864,7 @@ spriteAlreadyErased:
 	bit FLG_jumping, (iy+asm_flag1)
 	jp z,SPR_jump
 	jp loop
-; ************** FIN DE LA BOUCLE PRINCIPAL
+; ************** FIN DE LA BOUCLE PRINCIPALE
 
 
 NEW_dispTwoTiles:
@@ -991,7 +986,7 @@ SPR_jump:
 	bit FLG_spaceshipOn, (iy+asm_flag1)
 	jp nz,SPCSHP_up
 
-	; we don't want the sprite to jump when at the end of the level
+	; we don't want the sprite to jump when it is at the end of the level
 	ld hl,(fstBlock)
 	ld de,(bytesToSkip)
 	or a
@@ -1006,7 +1001,7 @@ SPR_jump:
 
 	bit FLG_jumping, (iy+asm_flag1)
 	jr nz,planNewJump
-	
+
 	res FLG_jmpAgain, (iy+asm_flag1)
 	set FLG_jmpUsed, (iy+asm_flag2)
 	set FLG_jumping, (iy+asm_flag1)
@@ -1400,6 +1395,7 @@ NORM_jmpTile_jumping:
 	set FLG_jumping, (iy+asm_flag1)
 	ld hl,jmpSpeedLUT
 	ld (jmp_speed),hl
+	set FLG_topReached, (iy+asm_flag1)
 	pop hl
 	jp dispCharacter
 NORM_noJmpTile_jumping:
@@ -1714,10 +1710,12 @@ RVRS_jmpTile_jumping:
 	jr c,RVRS_noJmpTile_jumping
 	bit FLG_jmpAgain, (iy+asm_flag1)
 	jr z,RVRS_noJmpTile_jumping
+
 	res FLG_jmpAgain, (iy+asm_flag1)
 	set FLG_jumping, (iy+asm_flag1)
 	ld hl,jmpSpeedLUT_rvrs
 	ld (jmp_speed),hl
+	set FLG_botReached, (iy+asm_flag1)
 	pop hl
 	jp dispCharacter
 RVRS_noJmpTile_jumping:
@@ -2169,6 +2167,18 @@ SCRUP_SYNC_IXSet:
 	jp afterScroll
 
 SCRUP_NEW_dispTilesVertScroll:
+	; Paramètres :
+	;	A = ?
+	;	Shadow B = ?
+	;	Shadow C = ?
+	ex af,af' 
+	exx
+	ld a,c
+	exx
+	or a	; on check que shadow c!=0
+	ret z
+	ex af,af'
+
 	push ix
 	push af
 	push hl
@@ -2288,7 +2298,7 @@ scrollDown:
 	ld d,a
 	cp TIL_sizeY
 	jr nz,SCRDW_noVerif
-	; checking if the top has been reached
+	; checking if the floor has been reached
 	ld hl,(bytesToSkip)
 	ld bc,(maxBytesToSkip)
 	or a
@@ -2567,10 +2577,10 @@ SCRDW_scrollDownSyncOtherBuf:
 	jp z,onlyScrollRight
 
 	; fixes a bug (try to scroll up when falling)
-	;ld hl,(Vcharacter_posY)
-	;ld de,320*70
-	;sbc hl,de
-	;jp c,SCRDW_scrollDownSyncOtherBuf
+	ld hl,(Vcharacter_posY)
+	ld de,320*70
+	sbc hl,de
+	jp c,SCRUP_scrollUpSyncOtherBuf
 	
 	ld de,(prev_speed)
 	push de
@@ -2708,6 +2718,18 @@ SCRDW_SYNC_twoTilesToDisp:
 	jp afterScroll
 
 SCRDW_NEW_dispTilesVertScroll:
+	; Paramètres :
+	;	A = ?
+	;	Shadow B = ?
+	;	Shadow C = ?
+	ex af,af'
+	exx
+	ld a,c
+	exx
+	or a
+	ret z
+	ex af,af'
+	
 	push ix
 	push af
 	push hl
@@ -2795,6 +2817,7 @@ SCRDW_oneTileDisplayed:
 	push bc
 	pop iy
 	ex af,af'
+	;call DEBUG
 SCRDW_NEW_dispTilesVertScrollY:
 	push de
 	lea bc,iy+0

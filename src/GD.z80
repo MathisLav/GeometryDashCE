@@ -99,12 +99,12 @@
 	#DEFINE FLG_alrdyErased	7 ; flag ()
 	;	asm_flag2
 	#DEFINE FLG_pauseLeft	0 ; flag ()
-	#DEFINE FLG_noLevel		1 ; flag (if there's no level on the calc)
+	#DEFINE FLG_noLevel		1 ; MENU flag (if there's no level on the calc)
 	#DEFINE FLG_jmpUsed		2 ; flag (prevent sprite from jumping on a yellow tile if user did not re-pressed 2nde)
 	#DEFINE FLG_sphpAvlble	3 ; flag (COMPATIBILITÉ AVEC ANCIENNE VERSION (sans vaisseau spatial))
-	#DEFINE FLG_2dePartName	4 ; flag (used when choosing the name of the level that is being created)
+	#DEFINE FLG_2dePartName	4 ; MENU flag (used when choosing the name of the level that is being created)
 	#DEFINE FLG_inEditorMode 5; flag (1=editing a level)
-	;#DEFINE FLG_colorTRS	5 ; flag ()
+	;#DEFINE FLG_colorTRS	6 ; flag ()
 .list
 	.org userMem-2
 	.db tExtTok,tAsm84CeCmp
