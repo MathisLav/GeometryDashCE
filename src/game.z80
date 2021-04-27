@@ -633,11 +633,11 @@ dispCharacter:
 	push hl
 	ld hl,vRam
 	sbc hl,de
-	jp nc,die-1
+	jp nc,dieHard
 	ld hl,vRam+(320*235*2)
 	or a
 	sbc hl,de
-	jp c,die-1
+	jp c,dieHard
 	pop hl
 	ld a,(spriteSize)
 	ld b,a
@@ -1394,6 +1394,8 @@ NORM_jmpTile_jumping:
 	set FLG_jumping, (iy+asm_flag1)
 	ld hl,jmpSpeedLUT
 	ld (jmp_speed),hl
+	ld hl,0
+	ld (mn),hl
 	set FLG_topReached, (iy+asm_flag1)
 	pop hl
 	jp dispCharacter
@@ -1494,7 +1496,17 @@ NORM_endJumping:
 	ld a,(hl)
 	cp 0FAh
 	jr nc,NORM_jmpTile
-	ld de,320*4-10
+	ld de,-320*3-10
+	add hl,de
+	ld a,(hl)
+	cp 0FAh
+	jr nc,NORM_jmpTile
+	ld de,-320*1-5
+	add hl,de
+	ld a,(hl)
+	cp 0FAh
+	jr nc,NORM_jmpTile
+	ld de,-320*2-5
 	add hl,de
 	ld a,(hl)
 	cp 0FAh
@@ -1504,6 +1516,8 @@ NORM_jmpTile:
 	ld hl,jmpSpeedLUT-15
 	ld (jmp_speed),hl
 	set FLG_topReached, (iy+asm_flag1)
+	ld hl,0
+	ld (mn),hl
 	pop hl
 	jp dispCharacter
 NORM_noJmpTile:
@@ -1715,6 +1729,8 @@ RVRS_jmpTile_jumping:
 	set FLG_jumping, (iy+asm_flag1)
 	ld hl,jmpSpeedLUT_rvrs
 	ld (jmp_speed),hl
+	ld hl,0
+	ld (mn),hl
 	set FLG_botReached, (iy+asm_flag1)
 	pop hl
 	jp dispCharacter
@@ -1791,6 +1807,8 @@ RVRS_jmpTile:
 	set FLG_jumping, (iy+asm_flag1)
 	ld hl,jmpSpeedLUT_rvrs+15
 	ld (jmp_speed),hl
+	ld hl,0
+	ld (mn),hl
 	set FLG_botReached, (iy+asm_flag1)
 	pop hl
 	jp dispCharacter
@@ -3212,8 +3230,10 @@ game_pause:
 _PAUSE_pal:
 	.dw 00000h,0D002h,12288,0FFFFh
 
-
-	pop ix
+dieHard:
+	; die because the character is out of the VRam bounds
+	pop hl
+	jr crashed
 die:
 	; If jumping tile
 	cp $FA
@@ -3223,7 +3243,6 @@ die:
 	cp $7F
 	jp c,dispCharacter
 crashed:
-
 	; New High Score ?
 	ld hl,(begLvlToPlay)
 	ld de,0
