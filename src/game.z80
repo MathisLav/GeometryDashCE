@@ -1392,6 +1392,7 @@ NORM_jmpTile_jumping:
 
 	res FLG_jmpAgain, (iy+asm_flag1)
 	set FLG_jumping, (iy+asm_flag1)
+	set FLG_jmpUsed, (iy+asm_flag2)
 	ld hl,jmpSpeedLUT
 	ld (jmp_speed),hl
 	ld hl,0
@@ -1512,6 +1513,7 @@ NORM_endJumping:
 	cp 0FAh
 	jr c,NORM_noJmpTile
 NORM_jmpTile:
+	res FLG_jmpUsed, (iy+asm_flag2)
 	set FLG_jumping, (iy+asm_flag1)
 	ld hl,jmpSpeedLUT-15
 	ld (jmp_speed),hl

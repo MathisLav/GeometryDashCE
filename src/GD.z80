@@ -897,6 +897,8 @@ fillingPlayLevel:
 
 
 addHighScore:
+	bit FLG_inEditorMode, (iy+asm_flag2)
+	ret nz
 	push af
 	ld hl,AppvarStoreScore
 	call _mov9ToOp1

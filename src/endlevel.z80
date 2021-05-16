@@ -44,15 +44,13 @@ DONE_spriteMoveForward:
 	ld de,4
 	add hl,de
 	ld (Vcharacter_posY),hl
-	push hl
 
-; Don't need speed
-	call _Random
-	ld a,8
-	call _SetxxOP2
-	call _FPMult
-	call _convop1
-	pop hl
+; Pseudo random
+	ld a, l
+	and a, %00000111 ; 7 max
+	ld de, 0
+	ld e, a
+
 	ld bc,(currentDrawLoc)
 	add hl,bc
 	ld bc,(SPR_sizeY-11)*320+2
@@ -128,6 +126,7 @@ MVF_slowDownIn:
 	pop af
 	dec a
 	jp nz,DONE_spriteMoveForward
+
 	; **** Erasing Tail (again)
 	ld b,TAIL_nb+1
 	ld hl,tailEffectBufPos
