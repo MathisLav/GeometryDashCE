@@ -87,7 +87,7 @@
 	#DEFINE addrLvlEdited	cmdShadow+4	; adresse après le nom du niveau qui est en train d'être édité
 	#DEFINE createNameBuf	cmdShadow+7	; (9+9+2 OCTETS) buffer de l'entrée utilisateur du nom du niveau qu'il faut créer
 	#DEFINE namesBuf		cmdShadow+27	; used in the main menu
-	#DEFINE	GD_MENU_MAX_LEVEL	24
+	#DEFINE	GD_MENU_MAX_LEVEL	16
 	; FLAGS
 	;	asm_flag1
 	#DEFINE	FLG_jumping		0 ; flag (sprite is jumping or spaceship is flying)
@@ -256,14 +256,14 @@ appVarInRAM:
 stringToFind_loop:
 	ld a,(de)
 	cp (hl)
-	jr nz,notForGD-1
+	jr nz,notForGD_pop
 	inc hl
 	inc de
 	djnz stringToFind_loop
 	ld	a, iyl
 	inc	a
 	cp	a, GD_MENU_MAX_LEVEL+1
-	jr	nc, notForGD
+	jr	nc, notForGD_pop
 	inc	iy
 	ex	de, hl
 	ld	(ix), hl
@@ -279,6 +279,7 @@ stringToFind_loop:
 	ld	(ix+6), hl
 	lea	ix, ix+9
 	push hl ; pour reset le stack si on est sorti de la boucle stringToFind_loop prématurément (y'a un pop d'écart)
+notForGD_pop:
 	pop hl
 notForGD:
 	ld a,(hl)
