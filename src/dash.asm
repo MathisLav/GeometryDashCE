@@ -1205,11 +1205,11 @@ ERR_needMenu:
 ;		- remplacer les particules par des pixels transparents aux trampolines
 ;		- Lancer le compresseur
 
-#include "src/graphicFuncs.z80"
-#include "src/game.z80"
-#include "src/endlevel.z80"
-#include "src/gdcreator.z80"
-#include "src/data.z80"
+#include "src/graphic.asm"
+#include "src/game.asm"
+#include "src/end.asm"
+#include "src/creator.asm"
+#include "src/data.asm"
 
 .echo "Size : ", $ - start
 .end
