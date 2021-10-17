@@ -1,7 +1,7 @@
-face_5_insane_width := 30
-face_5_insane_height := 30
-face_5_insane_size := 902
-face_5_insane:
+face_4_insane_width := 30
+face_4_insane_height := 30
+face_4_insane_size := 902
+face_4_insane:
 	db	$1e,$1e,$1c,$1c,$1c,$1c,$1c,$1c,$1c,$1c,$1c,$30,$16,$3c,$5d,$04,$04,$04,$04,$5d,$3c,$16,$30,$1c,$1c,$1c,$1c,$1c,$1c,$1c,$1c,$1c
 	db	$1c,$1c,$1c,$1c,$1c,$20,$30,$20,$3b,$03,$13,$75,$ca,$c1,$e0,$e0,$c1,$ca,$75,$13,$03,$3b,$20,$1c,$1c,$1c,$1c,$1c,$1c,$1c,$1c,$1c
 	db	$1c,$1c,$28,$03,$5d,$5d,$af,$c3,$d6,$81,$81,$81,$7d,$7d,$81,$81,$81,$d6,$c3,$af,$5d,$3b,$28,$1c,$1c,$1c,$1c,$1c,$1c,$1c,$1c,$1c
