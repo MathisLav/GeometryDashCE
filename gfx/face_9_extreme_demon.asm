@@ -1,7 +1,7 @@
-face_11_extreme_demon_width := 30
-face_11_extreme_demon_height := 30
-face_11_extreme_demon_size := 902
-face_11_extreme_demon:
+face_9_extreme_demon_width := 30
+face_9_extreme_demon_height := 30
+face_9_extreme_demon_size := 902
+face_9_extreme_demon:
 	db	$1e,$1e,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$a2,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f
 	db	$3f,$3f,$3f,$a2,$3f,$3f,$3f,$3f,$a2,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$a2,$3f,$3f,$3f,$a2,$a2,$3f,$3f,$3f,$a2
 	db	$2d,$22,$3f,$3f,$3f,$a2,$1e,$3b,$43,$a2,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$a2,$24,$31,$3f,$3f,$3f,$a2,$6b,$3e,$a2,$3f,$3f,$a2,$20,$59
