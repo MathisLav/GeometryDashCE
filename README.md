@@ -69,7 +69,7 @@ More information here : https://creativecommons.org/licenses/by-nc-sa/4.0/
 - Once you download the Appvar, upload it into you calculator and.. you're done!
 
 
-Thanks to shadow17, the archive now contains 6 levels (instead of the initial 3 levels)! Thank you!
+Thanks to Shadow, the archive now contains 8 levels (instead of the initial 3 levels)! Thank you!
 
 
 NOTE : if the previous website is down, please use this one : http://geometrydash.alwaysdata.net
