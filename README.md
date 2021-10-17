@@ -1,12 +1,16 @@
 # Geometry Dash for Ti-83 Premium CE and Ti-84+CE
 
+[1490900229ezgif_1_80af31cf79](https://user-images.githubusercontent.com/85101130/137631673-9f5b34be-252f-4c73-a5fa-b55270a4ac33.gif)
+
+
 ### Keys
 __Main Menu__
 - MODE/DEL/CLEAR : quit
 - </> : choose a level
 - ENTER/2ND : run the selected level
 - ALPHA : edit the selected level
-- \+ : create a level
+- \+ : create a level!
+
 
 __Game__
 - 2ND : jump
