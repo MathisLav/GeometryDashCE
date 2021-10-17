@@ -1,7 +1,7 @@
-face_4_unrated_width := 30
-face_4_unrated_height := 30
-face_4_unrated_size := 902
-face_4_unrated:
+face_10_unrated_width := 30
+face_10_unrated_height := 30
+face_10_unrated_size := 902
+face_10_unrated:
 	db	$1e,$1e,$1c,$1c,$1c,$1c,$1c,$1c,$1c,$1c,$1c,$30,$16,$3c,$5d,$04,$04,$04,$04,$5d,$3c,$16,$30,$1c,$1c,$1c,$1c,$1c,$1c,$1c,$1c,$1c
 	db	$1c,$1c,$1c,$1c,$1c,$1c,$1c,$20,$3b,$03,$2a,$16,$1c,$25,$3e,$3e,$25,$1c,$16,$2a,$03,$3b,$20,$1c,$1c,$1c,$1c,$1c,$1c,$1c,$1c,$1c
 	db	$1c,$1c,$1c,$1c,$16,$5d,$55,$21,$34,$36,$36,$36,$36,$36,$36,$36,$36,$34,$21,$55,$5d,$16,$1c,$1c,$1c,$1c,$1c,$1c,$1c,$1c,$1c,$1c
