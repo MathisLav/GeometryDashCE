@@ -1,7 +1,7 @@
-face_8_medium_demon_width := 30
-face_8_medium_demon_height := 30
-face_8_medium_demon_size := 902
-face_8_medium_demon:
+face_6_medium_demon_width := 30
+face_6_medium_demon_height := 30
+face_6_medium_demon_size := 902
+face_6_medium_demon:
 	db	$1e,$1e,$1b,$19,$1b,$19,$a2,$a2,$a2,$1b,$1b,$1b,$1b,$1b,$19,$19,$19,$19,$19,$19,$a2,$19,$1b,$1b,$19,$a2,$a2,$a2,$19,$a2,$1b,$1b
 	db	$19,$19,$1b,$19,$a2,$a2,$3f,$19,$1b,$1b,$1b,$1b,$32,$6b,$e0,$e0,$6b,$32,$1b,$1b,$1b,$1b,$1b,$a2,$19,$19,$3f,$1b,$1b,$1b,$19,$a2
 	db	$1b,$1b,$19,$1b,$a2,$19,$1b,$5a,$ca,$73,$b9,$79,$79,$94,$b9,$b9,$73,$c3,$32,$1b,$1b,$1b,$1b,$19,$19,$19,$19,$19,$2d,$55,$3f,$1b
