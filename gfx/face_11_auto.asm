@@ -1,7 +1,7 @@
-face_6_auto_width := 30
-face_6_auto_height := 30
-face_6_auto_size := 902
-face_6_auto:
+face_11_auto_width := 30
+face_11_auto_height := 30
+face_11_auto_size := 902
+face_11_auto:
 	db	$1e,$1e,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$34,$24,$3b,$03,$04,$02,$02,$04,$03,$3b,$24,$34,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f
 	db	$3f,$3f,$3f,$3f,$3f,$3f,$3f,$2d,$31,$59,$03,$dd,$e9,$f9,$e9,$e9,$f9,$e9,$dd,$03,$59,$31,$2d,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f
 	db	$3f,$3f,$3f,$3f,$24,$59,$fc,$20,$d8,$d8,$d8,$d8,$f9,$f9,$d8,$d8,$d8,$d8,$20,$fc,$59,$24,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f
