@@ -1,4 +1,4 @@
-# Geometry Dash for Ti-83 Premium CE and Ti-84+CE
+# Geometry Dash for TI-83 Premium CE and TI-84+CE
 
 https://user-images.githubusercontent.com/85101130/137631753-f7c3c936-968e-44e1-982f-c042ceb7c46b.mp4
 
