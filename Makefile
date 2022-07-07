@@ -1,6 +1,8 @@
 SPASM=spasm
 TILP="sudo tilp"
 ZIP=zip
+BINARIES := $(wildcard bin/*.8x[pv])
+
 
 spasm:
 	$(SPASM) -E src/GD.z80 bin/AGD.8xp
@@ -15,6 +17,9 @@ all:
 sendall:
 	$(TILP) -n -s levels/*.8xv bin/*.8x{p,v}
 
-release:
+
+release: 
 	rm -f GeometryDash.zip
-	$(ZIP) -r GeometryDash.zip include/ levels/ bin/ levels/ images/ README.md 
+	cp $(BINARIES) .
+	$(ZIP) -r GeometryDash.zip include/ levels/ images/ src/ *.8x[vp] README.md
+	rm -f $(subst bin/,,$(BINARIES))
