@@ -1,6 +1,6 @@
 # Geometry Dash for Ti-83 Premium CE and Ti-84+CE
 
-### Keys
+## Keys
 __Main Menu__
 - `MODE/DEL/CLEAR` : quit
 - `Left/Right arrows` : choose a level
@@ -28,12 +28,12 @@ __Edition__
 - `ALPHA+PRGM` : run and begin the level at the cursor location
 - `MODE/CLEAR` : quit the level/program
 
-### Compiling
-#### Windows
+## Compiling
+### Windows
 First, install **[spasm](https://github.com/alberthdev/spasm-ng/releases)**.
 Then, move the executable into the root folder of GeometryDashCE and execute `spasm64.exe -E src/GD.z80 bin/AGD.8xp`.
 
-#### Linux
+### Linux
 First, install **[spasm](https://github.com/alberthdev/spasm-ng/releases)**.
 Open a terminal and type :
 - `make spasm` to compile GeometryDashCE and generate [AGD.8xp](bin/AGD.8xp).
@@ -43,7 +43,7 @@ Open a terminal and type :
 - `make archive` to build a portable archive of GeometryDashCE.
 
 
-### Information
+## Information
 You can find all the levels created by the community [there](https://tiplanet.org/forum/archives_list.php?cat=Jeux+Levels+Geometry+Dash+ce).
 
 The discussion around the project is available at [this link](https://tiplanet.org/forum/viewtopic.php?f=12&t=19211).
@@ -52,7 +52,7 @@ Do not hesitate to [contact me](https://tiplanet.org/forum/ucp.php?i=pm&mode=com
 This program is under the [Creative Commons BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
  
 
-### How can I create my own level on my computer ?
+## How can I create my own level on my computer ?
 - Download and install Tiled, a software that will allow you to create a level from a specific tileset.
 - In Tiled, create a level with a height of at least 10 tiles, then import the [tileset](images/GD.png) (Map -> New Tileset).
 - When you're satisfied of your level, export it with the .CSV extension.
