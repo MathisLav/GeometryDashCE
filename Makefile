@@ -1,18 +1,20 @@
-WINE=wine64
+SPASM=spasm
+TILP="sudo tilp"
+ZIP=zip
 
 spasm:
-	$(WINE) spasm64.exe -E -L src/GD.z80 AGD.8xp
+	$(SPASM) -E src/GD.z80 bin/AGD.8xp
 
 send:
-	sudo tilp -n -s AGD.8xp
+	$(TILP) -n -s AGD.8xp
 
 all:
-	$(WINE) spasm64.exe -E -L src/GD.z80 AGD.8xp
-	sudo tilp -n -s AGD.8xp
+	$(SPASM) -E src/GD.z80 bin/AGD.8xp
+	$(TILP) -n -s bin/AGD.8xp
 
 sendall:
-	sudo tilp -n -s AGD.8xp levels/*.8xv ./*.8xv
+	$(TILP) -n -s levels/*.8xv bin/*.8x{p,v}
 
 release:
-	rm GeometryDash.zip
-	zip -r GeometryDash.zip include/* levels/* src/* *.8xp *.8xv *.png LISEZMOI.txt README.md 
+	rm -f GeometryDash.zip
+	$(ZIP) -r GeometryDash.zip include/ levels/ bin/ levels/ images/ README.md 

@@ -1,0 +1,6 @@
+[submodule "tools/spasm-ng"]
+	path = tools/spasm-ng
+	url = git@github.com:alberthdev/spasm-ng.git
+[submodule "tools/tilp_and_gfm"]
+	path = tools/tilp_and_gfm
+	url = git@github.com:debrouxl/tilp_and_gfm.git
