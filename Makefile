@@ -1,16 +1,16 @@
 SPASM=spasm
-TILP="sudo tilp"
+TILP=sudo tilp
 ZIP=zip
 BINARIES := $(wildcard bin/*.8x[pv])
 
 
-spasm:
+build:
 	$(SPASM) -E src/GD.z80 bin/AGD.8xp
 
 send:
 	$(TILP) -n -s AGD.8xp
 
-all:
+build_send:
 	$(SPASM) -E src/GD.z80 bin/AGD.8xp
 	$(TILP) -n -s bin/AGD.8xp
 

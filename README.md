@@ -36,9 +36,9 @@ Then, move the executable into the root folder of GeometryDashCE and execute `sp
 ### Linux
 First, install **[spasm](https://github.com/alberthdev/spasm-ng/releases)**.
 Open a terminal and type :
-- `make spasm` to compile GeometryDashCE and generate [AGD.8xp](bin/AGD.8xp).
+- `make build` to compile GeometryDashCE and generate [AGD.8xp](bin/AGD.8xp).
 - `make send` to send bin/AGD.8xp to the calculator (requires [tilp](http://lpg.ticalc.org/prj_tilp/)).
-- `make all` as a shortcut of `make spasm ; make send`.
+- `make build_send` as a shortcut of `make build ; make send`.
 - `make sendall` to send all necessary files to run GD (without compiling).
 - `make archive` to build a portable archive of GeometryDashCE.
 
