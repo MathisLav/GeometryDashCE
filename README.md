@@ -1,5 +1,9 @@
 # Geometry Dash for Ti-83 Premium CE and Ti-84+CE
 
+<p align="center">
+  <img src="https://tiplanet.org/modules/archives/captures/16344778721490900229ezgif_1_80af31cf79.gif" />
+</p>
+
 ## Keys
 __Main Menu__
 - `MODE/DEL/CLEAR` : quit
