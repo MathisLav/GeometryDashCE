@@ -1,3 +1,11 @@
+; This file is used to compress the pixel shadow, menu, and tiles data using a simple RLE compression algorithm.
+; The compressed data is stored in an appvar for use in the game.
+; Run the program on your calculator, it will create the appvar either :
+; 		- "GDGrphc" containing the compressed graphics data
+; 	or 	- "GDMenu" containing the compressed menu data
+; ...according to the selected compression option (see the comments in the code).
+; NB: All *.asm files have been generated using convimg (https://github.com/mateoconlechuga/convimg)
+
 .nolist
 	#include "ti84pce.inc"
 	#define db .db
@@ -12,7 +20,7 @@
 	.db tExtTok,tAsm84CeCmp
 
 	ld de,pixelshadow+3
-	ld hl,tiles
+	ld hl,tiles  ; Change to menu to compress the menu instead of the tiles
 	ld ix,0
 startingCompression:
 	ld c,(hl)
@@ -61,6 +69,12 @@ AppVarName:
 	.db appvarObj,"GDGrphc",0
 AppVarName2:
 	.db appvarObj,"GDMenu",0
+
+
+; ********************************************************************
+; Uncomment either of these sections to compress the menu or the tiles
+; ! Do not uncomment both !
+; ********************************************************************
 
 menu:
 ;#include "spritesGD/GDFont.asm"

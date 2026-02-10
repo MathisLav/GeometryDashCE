@@ -4,3 +4,6 @@
 [submodule "tools/tilp_and_gfm"]
 	path = tools/tilp_and_gfm
 	url = git@github.com:debrouxl/tilp_and_gfm.git
+[submodule "convimg"]
+	path = tools/convimg
+	url = https://github.com/mateoconlechuga/convimg
