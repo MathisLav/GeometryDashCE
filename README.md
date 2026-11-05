@@ -18,7 +18,7 @@ __Game__
 - `CLEAR` : quit the program
 - `ENTER` : pause the game
 
-__Edition__
+__Editor__
 - `Arrows` : move the cursor and scroll
 - `ALPHA+Left/Right` : go to the beginning/end of the level
 - `2ND/DEL` : insert/delete a tile
